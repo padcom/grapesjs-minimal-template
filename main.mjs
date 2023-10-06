@@ -15,7 +15,7 @@ function example(editor) {
  * @param {import("grapesjs").Editor} editor
  */
 function openBlocksByDefault(editor) {
-  editor.on('load', () => {
+  editor.onReady(() => {
     editor.Panels.getButton('views', 'open-blocks').set('active', true)
   })
 }
@@ -27,7 +27,7 @@ function showProjectData(editor) {
   // console.log(editor.Panels.getPanels().map(panel => panel.id))
   editor.Panels.addButton('options', {
     label: '!',
-    command: () => {
+    command() {
       editor.Modal.open({
         title: 'Project data',
         content: `
